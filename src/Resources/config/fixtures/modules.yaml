@@ -1,0 +1,97 @@
+fixtures:
+    CoralMedia\Bundle\WebDesktopBundle\Entity\Module:
+        -   jsid: 'demo-bogus'
+            type: 'demo/bogus'
+            label: 'Bogus Window'
+            className: 'QoDesk.BogusWindow'
+            iconCls: 'bogus-icon'
+            shortcutIconCls: 'demo-bogus-shortcut'
+            tooltip: '<b>Bogus Window</b><br />A bogus window'
+            startMenuPath: '/Demo/Bogus Menu/Bogus Sub Menu'
+            contextMenuPath: ~
+            startMenuToolPath: ~
+            hasResources: true
+
+        -   jsid: 'demo-accordion'
+            type: 'demo/accordion'
+            label: 'Accordion Window'
+            className: 'QoDesk.AccordionWindow'
+            iconCls: 'acc-icon'
+            shortcutIconCls: 'demo-acc-shortcut'
+            tooltip: '<b>Accordion Window</b><br />A window with an accordion'
+            startMenuPath: '/Demo'
+            contextMenuPath: ~
+            startMenuToolPath: ~
+            hasResources: true
+
+        -   jsid: 'demo-grid'
+            type: 'demo/grid'
+            label: 'Grid Window'
+            className: 'QoDesk.GridWindow'
+            iconCls: 'grid-icon'
+            shortcutIconCls: 'demo-grid-shortcut'
+            tooltip: '<b>Grid Window</b><br />A grid window'
+            startMenuPath: '/Demo'
+            contextMenuPath: ~
+            startMenuToolPath: ~
+            hasResources: true
+
+        -   jsid: 'demo-layout'
+            type: 'demo/layout'
+            label: 'Layout Window'
+            className: 'QoDesk.LayoutWindow'
+            iconCls: 'layout-icon'
+            shortcutIconCls: 'demo-layout-shortcut'
+            tooltip: '<b>Layout Window</b><br />A layout window'
+            startMenuPath: '/Demo'
+            contextMenuPath: ~
+            startMenuToolPath: ~
+            hasResources: false
+
+        -   jsid: 'demo-charts'
+            type: 'demo/charts'
+            label: 'Charts Window'
+            className: 'QoDesk.ChartsWindow'
+            iconCls: 'layout-icon'
+            shortcutIconCls: 'demo-layout-shortcut'
+            tooltip: '<b>Charts Window</b><br />Charts layout window'
+            startMenuPath: '/Demo'
+            contextMenuPath: ~
+            startMenuToolPath: ~
+            hasResources: false
+
+        -   jsid: 'demo-tab'
+            type: 'demo/tab'
+            label: 'Tab Window'
+            className: 'QoDesk.TabWindow'
+            iconCls: 'tab-icon'
+            shortcutIconCls: 'demo-tab-shortcut'
+            tooltip: '<b>Tab Window</b><br />A tab window'
+            startMenuPath: '/Demo/'
+            contextMenuPath: ~
+            startMenuToolPath: ~
+            hasResources: false
+
+        -   jsid: 'system-preferences'
+            type: 'system/preferences'
+            label: 'Preferences'
+            className: 'QoDesk.QoPreferences'
+            iconCls: 'qo-pref-icon'
+            shortcutIconCls: 'qo-pref-shortcut-icon'
+            tooltip: '<b>Desktop Preferences</b><br />Set Desktop Configuration, wallpapers, shorcuts, etc'
+            startMenuPath: ~
+            contextMenuPath: ~
+            startMenuToolPath: '/'
+            hasResources: true
+
+        -   jsid: 'system-administration'
+            type: 'system/administration'
+            label: 'Control Center'
+            className: 'CoralMedia.Admin'
+            iconCls: 'qo-admin-icon'
+            shortcutIconCls: 'qo-admin-shortcut-icon'
+            tooltip: '<b>Control Center</b><br />Allows you to administer your desktop'
+            startMenuPath: ~
+            contextMenuPath: ~
+            startMenuToolPath: '/'
+            hasResources: true

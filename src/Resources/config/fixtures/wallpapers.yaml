@@ -1,0 +1,62 @@
+fixtures:
+    CoralMedia\Bundle\WebDesktopBundle\Entity\Wallpaper:
+        -   name: 'Blank'
+            file: 'blank.gif'
+            active: true
+
+        -   name: 'Blue Curtain'
+            file: 'blue-curtain.jpg'
+            active: true
+        
+        -   name: 'Blue Psychedelic'
+            file: 'blue-psychedelic.jpg'
+            active: true
+        
+        -   name: 'Blue Swirl'
+            file: 'blue-swirl.jpg'
+            active: true
+
+        -   name: 'Blue Swirl Border'
+            file: 'blue-swirl-border.jpg'
+            active: true
+        
+        -   name: 'Colorado Farm'
+            file: 'colorado-farm.jpg'
+            active: true
+        
+        -   name: 'Curls on Green'
+            file: 'curls-on-green.jpg'
+            active: true
+        
+        -   name: 'Emotion'
+            file: 'emotion.jpg'
+            active: true
+        
+        -   name: 'Emotion Pattern'
+            file: 'emotion-pattern.jpg'
+            active: true
+        
+        -   name: 'Eos'
+            file: 'eos.jpg'
+            active: true
+        
+        -   name: 'Field of Peace'
+            file: 'fields-of-peace.jpg'
+            active: true
+        
+        -   name: 'Fresh Morning'
+            file: 'fresh-morning.jpg'
+            active: true
+        
+        -   name: 'Lady Bug'
+            file: 'ladybug.jpg'
+            active: true
+        
+        -   name: 'Pattern Red'
+            file: 'pattern-red.gif'
+            active: true
+        
+        -   name: 'Summer'
+            file: 'summer.jpg'
+            active: true
+        

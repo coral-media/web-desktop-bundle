@@ -1,0 +1,94 @@
+{% extends '@CoralMediaWebDesktop/base.html.twig' %}
+
+{% block stylesheets %}
+    <!-- DESKTOP CSS -->
+{#    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/css/xtheme-blue.css') }}" />#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/desktop.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/icons.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/oxygen-icons.css') }}" />
+
+    <script type="text/javascript" src="{{ asset('build/requirejs/require.js') }}"></script>
+{% endblock %}
+
+{% block title %}Hello DesktopController!{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        requirejs.config({
+            baseUrl: '/build/requirejs',
+            paths: {
+                desktop: '../desktop',
+                app: '../desktop/modules',
+                sencha: '../ext-3.4.1',
+                addons: '../desktop/addons'
+            }
+        });
+        requirejs([
+            'desktop/App',
+            'desktop/Api',
+            'desktop/Addons',
+            'desktop/Desktop',
+            'desktop/Module',
+            'desktop/Notification',
+            'desktop/Shortcut',
+            'desktop/StartMenu',
+            'desktop/TaskBar',
+            'desktop/QuickStartPanel',
+            'desktop/TaskButton',
+            'desktop/TaskButtonsPanel',
+            'desktop/Utils',
+            'desktop/chart.js/Chart',
+        ], function(){
+            require(['domReady!'], function (doc) {
+                Ext.namespace('Ext.ux', 'App.Desktop', 'QoDesk', 'CoralMedia');
+
+                App.Desktop = new Ext.app.App({
+                    init: function () {
+                        let self = this;
+                        Ext.BLANK_IMAGE_URL = requirejs.toUrl('sencha/') + 'resources/images/default/s.gif';
+                        Ext.QuickTips.init();
+                    },
+
+                    apiToken: '{{ app.request.session.get('Bearer')|raw }}',
+
+                    /**
+                     * The member's name and group name for this session.
+                     */
+                    memberInfo: {
+                        name: 'Espinosa Rafael',
+                        group: 'System Administrator'
+                    },
+
+                    /**
+                     * An array of the module definitions.
+                     * The definitions are used until the module is loaded on demand.
+                     */
+                    modules: {{ modules|json_encode|raw }},
+
+                    /**
+                     * The members privileges.
+                     */
+                    privileges: {
+                        "demo-accordion": [],
+                        "demo-bogus": [],
+                        "demo-grid": [],
+                        "demo-layout": [],
+                        "demo-tab": [],
+                        // "system-administration": ["addGroup", "addMember", "addPrivilege", "approveSignupsToGroup", "deleteGroup", "deleteMember", "deletePrivilege", "denySignups", "editGroup", "editGroupPrivilege", "editMember", "editMembersGroups", "editPrivilege", "editPrivilegeModules", "viewGroups", "viewGroupPrivileges", "viewMembers", "viewMemberGroups", "viewPrivileges", "viewPrivilegeModules", "viewSignups"],
+                        "qo-mail": ["loadMemberFolders", "addMemberFolder"],
+                        "qo-preferences": ["saveAppearance", "saveAutorun", "saveBackground", "saveQuickstart", "saveShortcut", "viewThemes", "viewWallpapers"],
+                        "qo-profile": ["loadProfile", "saveProfile", "savePwd"]
+                    },
+
+                    /**
+                     * The desktop config object.
+                     */
+                    desktopConfig: {{ desktopConfig|json_encode|raw }}
+                });
+            });
+        });
+    </script>
+{% endblock %}

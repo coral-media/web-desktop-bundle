@@ -1,0 +1,183 @@
+{% extends '@CoralMediaWebDesktop/base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" id="theme" href="{{ asset('build/ext-3.4.1/resources/css/xtheme-blue.css') }}">
+    <link rel="stylesheet" type="text/css" id="x-theme" href="{{ asset('build/desktop/resources/x-blue.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/login.css') }}">
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            Ext.BLANK_IMAGE_URL = '{{ asset('build/ext-3.4.1/resources/images/default/s.gif') }}';
+            Ext.QuickTips.init();
+            new Ext.Viewport({
+                autoShow: true,
+                renderTo: Ext.getBody(),
+                layout: {
+                    type: 'vbox',
+                    align: 'center',
+                    pack: 'center',
+                    padding: 20,
+                },
+                // layout: 'border',
+                items: [
+                    new Ext.Panel({
+                        border: false,
+                        bodyStyle: {
+                            'background-color': 'transparent',
+                            'color': '#ffffff',
+                            'font-size': '1.5em'
+                        },
+                        padding: 10,
+
+                        html:'<h1>Login</h1>'
+                    }),
+                    new Ext.form.FormPanel({
+                        border: false,
+                        // title: 'Sign In',
+                        bodyStyle: {
+                            'background-color': 'transparent'
+                        },
+                        layout: 'form',
+                        width: 400,
+                        standardSubmit: true,
+                        url: '/login',
+                        method: 'POST',
+                        buttons: [{
+                            text: 'Login',
+                            scale: 'large',
+                            width: 60,
+                            handler: function(self) {
+                                let form = self.findParentByType('form').getForm();
+                                if (form.isValid()) {
+                                    form.submit();
+                                } else {
+                                    Ext.Msg.alert( "Error!", "Your form is not valid!" );
+                                }
+                            }
+                        }],
+                        items:[
+                            {
+                                id: 'inputEmail',
+                                xtype: 'textfield',
+                                name: 'email',
+                                value: '{{ last_username }}',
+                                fieldLabel: 'Email',
+                                labelStyle: 'color: #ffffff; font-size: 20px;',
+                                style: {
+                                    'background': 'transparent'
+                                },
+                                allowBlank: false,
+                                autoCreate: {tag: 'input', type: 'text', autocomplete: 'on'},
+                                // grow: true,
+                                // growMax:'90%',
+                                // growMin:'90%',
+                                anchor:'100%'
+                            },
+                            {
+                                id: 'inputPassword',
+                                xtype: 'textfield',
+                                inputType: 'password',
+                                name: 'password',
+                                fieldLabel: 'Password',
+                                autoCreate: {tag: 'input', type: 'password', autocomplete: 'on'},
+                                labelStyle: 'color: #ffffff; font-size: 20px;',
+                                style: {
+                                    'background': 'transparent'
+                                },
+                                allowBlank: false,
+                                // growMax:'90%',
+                                // growMin:'90%',
+                                anchor:'100%'
+                            },
+                            {
+                                xtype: 'checkbox',
+                                name: '_remember_me',
+                                boxLabel: '<span style="color: whitesmoke; margin-left: 10px;">Remember Me</span>',
+                            },
+                            {
+                                xtype: 'hidden',
+                                name: '_csrf_token',
+                                value: '{{ csrf_token('authenticate') }}'
+                            },
+
+                        ]
+                    }),
+                    new Ext.Panel({
+                        id: 'login-error',
+                        border: false,
+                        width: 400,
+                        bodyStyle: {
+                            'background-color': 'transparent',
+                            {% if error %}
+                            'background-color': 'rgba(241,162,162)',
+                            {% endif %}
+                            'color': '#721010'
+                        },
+                        padding: 5,
+                        {% if error %}
+                        html:'{{ error.messageKey|trans(error.messageData, 'security') }}'
+                        {% endif %}
+                    }),
+                    new Ext.Panel({
+                        id: 'login-footer',
+                        border: false,
+                        bodyStyle: {
+                            'background-color': 'transparent',
+                            'color': '#ffffff'
+                        },
+                        padding: 40,
+
+                        html:'<code>&copy; {{ "now"|date('Y') }} ' +
+                            '<a style="color: #fff;" target="_blank" href="https://coralmediasolutions.com/">Coral Media Solutions</a></code>'
+                    })
+                ]
+            });
+        });
+    </script>
+
+
+{#<form method="post">#}
+{#    {% if error %}#}
+{#        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+{#    {% endif %}#}
+
+{#    {% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+{#    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
+{#    <label for="inputEmail">Email</label>#}
+{#    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>#}
+{#    <label for="inputPassword">Password</label>#}
+{#    <input type="password" name="password" id="inputPassword" class="form-control" required>#}
+
+{#    <input type="hidden" name="_csrf_token"#}
+{#           value="{{ csrf_token('authenticate') }}"#}
+{#    >#}
+
+
+{#        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
+{#        See https://symfony.com/doc/current/security/remember_me.html#}
+
+{#        <div class="checkbox mb-3">#}
+{#            <label>#}
+{#                <input type="checkbox" name="_remember_me"> Remember me#}
+{#            </label>#}
+{#        </div>#}
+
+
+{#    <button class="btn btn-lg btn-primary" type="submit">#}
+{#        Sign in#}
+{#    </button>#}
+{#</form>#}
+{% endblock %}

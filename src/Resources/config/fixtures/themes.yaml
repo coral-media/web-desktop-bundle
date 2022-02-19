@@ -1,0 +1,19 @@
+fixtures:
+    CoralMedia\Bundle\WebDesktopBundle\Entity\Theme:
+        -   name: 'Blue'
+            author: 'Sencha Inc.'
+            version: '3.4'
+            thumbnail: 'xtheme-blue.gif'
+            active: true
+
+        -   name: 'Gray'
+            author: 'Sencha Inc.'
+            version: '3.4'
+            thumbnail: 'xtheme-gray.gif'
+            active: true
+
+        -   name: 'Access'
+            author: 'Sencha Inc.'
+            version: '3.4'
+            thumbnail: 'xtheme-access.gif'
+            active: true
