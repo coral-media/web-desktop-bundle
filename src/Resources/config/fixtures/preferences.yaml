@@ -14,36 +14,4 @@ fixtures:
             moduleShortcut: ["demo-accordion", "demo-grid", "demo-layout", "demo-bogus", "demo-tab"]
             theme: 'Blue'
             wallpaper: 'Blue Swirl Border'
-            user: 'admin@example.com'
-
-        -   fontColor: 'E9D5D5'
-            bgColor: 'F9F9F9'
-            wallpaperPosition: 'stretch'
-            taskbarPosition: 'top'
-            taskbarTransparency: 80
-            taskbarButtonScale: 'large'
-            taskbarQuickstartWidth: 200
-            taskbarButtonIconCls: 'icon-start'
-            taskbarButtonText: ''
-            moduleAutorun: []
-            moduleQuickstart: []
-            moduleShortcut: ["demo-accordion", "demo-grid", "demo-layout", "demo-bogus", "demo-tab"]
-            theme: 'Blue'
-            wallpaper: 'Blue Swirl Border'
-            user: 'superadmin@example.com'
-
-        -   fontColor: 'E9D5D5'
-            bgColor: 'F9F9F9'
-            wallpaperPosition: 'tile'
-            taskbarPosition: 'top'
-            taskbarTransparency: 80
-            taskbarButtonScale: 'large'
-            taskbarQuickstartWidth: 200
-            taskbarButtonIconCls: 'icon-start'
-            taskbarButtonText: ''
-            moduleAutorun: []
-            moduleQuickstart: []
-            moduleShortcut: ["demo-accordion", "demo-grid", "demo-layout", "demo-bogus", "demo-tab"]
-            theme: 'Blue'
-            wallpaper: 'Pattern Red'
-            user: 'demo@example.com'
+            user: null

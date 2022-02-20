@@ -33,15 +33,12 @@ class PreferenceFixtures extends Fixture implements AppFixturesInterface, Depend
         foreach ($data as $record) {
             $entity = new Preference();
             /**
-             * @var User $user
              * @var Theme $theme
              * @var Wallpaper $wallpaper
              */
-            $user = $this->getReference(sha1($record['user']));
             $theme = $this->getReference(sha1($record['theme']));
             $wallpaper = $this->getReference(sha1($record['wallpaper']));
-            $entity->setUser($user)
-                ->setTheme($theme)
+            $entity->setTheme($theme)
                 ->setWallpaper($wallpaper)
                 ->setFontColor($record['fontColor'])
                 ->setBgColor($record['bgColor'])
@@ -62,12 +59,15 @@ class PreferenceFixtures extends Fixture implements AppFixturesInterface, Depend
         $manager->flush();
     }
 
+    public static function getGroups(): array
+    {
+        return ['WebDesktop'];
+    }
+
     public function getDependencies()
     {
         return [
             ThemeFixtures::class,
-            SecurityFixtures::class,
-            DemoFixtures::class,
             WallpaperFixtures::class,
         ];
     }

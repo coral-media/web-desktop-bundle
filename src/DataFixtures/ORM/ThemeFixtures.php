@@ -5,10 +5,11 @@ namespace CoralMedia\Bundle\WebDesktopBundle\DataFixtures\ORM;
 use CoralMedia\Bundle\WebDesktopBundle\DataFixtures\AppFixturesInterface;
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Theme;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Yaml\Yaml;
 
-class ThemeFixtures extends Fixture implements AppFixturesInterface
+class ThemeFixtures extends Fixture implements AppFixturesInterface, FixtureGroupInterface
 {
     public function loadYamlData($className)
     {
@@ -39,5 +40,10 @@ class ThemeFixtures extends Fixture implements AppFixturesInterface
         }
 
         $manager->flush();
+    }
+
+    public static function getGroups(): array
+    {
+        return ['WebDesktop'];
     }
 }

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PreferenceRepository::class)
+ * @ORM\Table(name="`wd_preferences`")
  */
 class Preference
 {
@@ -16,85 +17,85 @@ class Preference
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=16)
      */
-    private $fontColor;
+    private ?string $fontColor;
 
     /**
      * @ORM\Column(type="string", length=16)
      */
-    private $bgColor;
+    private ?string $bgColor;
 
     /**
      * @ORM\Column(type="string", length=16)
      */
-    private $wallpaperPosition;
+    private ?string $wallpaperPosition;
 
     /**
      * @ORM\Column(type="string", length=16)
      */
-    private $taskbarPosition;
+    private ?string $taskbarPosition;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $taskbarTransparency;
+    private ?int $taskbarTransparency;
 
     /**
      * @ORM\Column(type="json", nullable=true)
      */
-    private $moduleAutorun = [];
+    private ?array $moduleAutorun = [];
 
     /**
      * @ORM\Column(type="json", nullable=true)
      */
-    private $moduleQuickstart = [];
+    private ?array $moduleQuickstart = [];
 
     /**
      * @ORM\Column(type="json", nullable=true)
      */
-    private $moduleShortcut = [];
+    private ?array $moduleShortcut = [];
 
     /**
      * @ORM\ManyToOne(targetEntity=Theme::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $theme;
+    private ?Theme $theme;
 
     /**
      * @ORM\ManyToOne(targetEntity=Wallpaper::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $wallpaper;
+    private ?Wallpaper $wallpaper;
 
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $user;
+    private ?User $user;
 
     /**
      * @ORM\Column(type="string", length=16)
      */
-    private $taskbarButtonScale;
+    private ?string $taskbarButtonScale;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $taskbarQuickstartWidth;
+    private ?int $taskbarQuickstartWidth;
 
     /**
      * @ORM\Column(type="string", length=32)
      */
-    private $taskbarButtonIconCls;
+    private ?string $taskbarButtonIconCls;
 
     /**
      * @ORM\Column(type="string", length=32, nullable=true)
      */
-    private $taskbarButtonText;
+    private ?string $taskbarButtonText;
 
     public function getId(): ?int
     {

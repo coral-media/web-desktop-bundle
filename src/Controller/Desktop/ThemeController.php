@@ -15,12 +15,12 @@ class ThemeController extends AbstractDesktopController
     {
         $data = $this->getDoctrine()->getRepository(Theme::class)
             ->findAll();
-        $themeThumbnailPath = '/build/desktop/resources/images';
+        $themeThumbnailPath = '/bundles/coralmediawebdesktop/desktop/resources/images';
         $responseData = [];
         /**
          * @var Theme $theme
          */
-        foreach($data as $theme){
+        foreach ($data as $theme) {
             $item = [];
             $item['id'] = $theme->getId();
             $item['name'] = $theme->getName();

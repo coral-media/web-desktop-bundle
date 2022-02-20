@@ -16,12 +16,12 @@ class WallpaperController extends AbstractDesktopController
     {
         $data = $this->getDoctrine()->getRepository(Wallpaper::class)
             ->findAll();
-        $wallpapersPath = '/build/desktop/resources/wallpapers';
+        $wallpapersPath = '/bundles/coralmediawebdesktop/desktop/resources/wallpapers';
         $responseData = [];
         /**
          * @var Wallpaper $wallpaper
          */
-        foreach($data as $wallpaper){
+        foreach ($data as $wallpaper) {
             $item = [];
             $item['id'] = $wallpaper->getId();
             $item['name'] = $wallpaper->getName();

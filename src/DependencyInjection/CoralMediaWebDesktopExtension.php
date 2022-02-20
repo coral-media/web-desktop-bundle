@@ -12,13 +12,19 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 final class CoralMediaWebDesktopExtension extends Extension
 {
+    /**
+     * @param array $configs
+     * @param ContainerBuilder $container
+     * @throws Exception
+     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         try {
             $loader->load('services.yaml');
-        } catch (Exception $e) {
+        } catch (Exception $throwable) {
+            throw $throwable;
         }
     }
 }

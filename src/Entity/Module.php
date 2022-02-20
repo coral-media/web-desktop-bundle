@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ModuleRepository::class)
+ * @ORM\Table(name="`wd_modules`")
  */
 class Module
 {

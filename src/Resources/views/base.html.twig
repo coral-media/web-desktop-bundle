@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset('build/ext-3.4.1/resources/css/ext-all-notheme.css') }}" />
+        <link rel="stylesheet" type="text/css"
+              href="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/resources/css/ext-all-notheme.css') }}" />
         {% block stylesheets %}{% endblock %}
-        <script type="text/javascript" src="{{ asset('build/ext-3.4.1/adapter/ext/ext-base.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('build/ext-3.4.1/ext-all.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/adapter/ext/ext-base.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/ext-all.js') }}"></script>
     </head>
     <body>
         {% block body %}{% endblock %}

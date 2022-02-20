@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=WallpaperRepository::class)
+ * @ORM\Table(name="`wd_wallpapers`")
  */
 class Wallpaper
 {

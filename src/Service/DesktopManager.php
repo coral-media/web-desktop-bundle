@@ -1,8 +1,6 @@
 <?php
 
-
 namespace CoralMedia\Bundle\WebDesktopBundle\Service;
-
 
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Module;
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Preference;
@@ -57,6 +55,12 @@ final class DesktopManager
          */
         $rawData = $this->em->getRepository(Preference::class)
             ->findOneBy(['user' => $this->security->getUser()]);
+
+        if ($rawData === null) {
+            $this->em->getRepository(Preference::class)
+                ->findOneBy(['user' => null]);
+        }
+
         $desktopConfig = new \stdClass();
         $theme = new \stdClass();
         $theme->id = $rawData->getTheme()->getId();
@@ -102,7 +106,7 @@ final class DesktopManager
 
         $desktopConfig->taskbarConfig->startMenuConfig = new \stdClass();
         $desktopConfig->taskbarConfig->startMenuConfig->iconCls = 'icon-user-48';
-        $desktopConfig->taskbarConfig->startMenuConfig->title = $this->security->getUser()->getUsername();
+        $desktopConfig->taskbarConfig->startMenuConfig->title = $this->security->getUser() ?? 'Anonymous';
 
         return $desktopConfig;
     }
