@@ -5,6 +5,7 @@ namespace CoralMedia\Bundle\WebDesktopBundle\Controller\Desktop;
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Preference;
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Theme;
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Wallpaper;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,14 +15,15 @@ class PreferenceController extends AbstractDesktopController
     /**
      * @Route("/preference/save", name="desktop_preference_save")
      * @param Request $request
+     * @param ManagerRegistry $managerRegistry
      * @return JsonResponse
      */
-    public function save(Request $request)
+    public function save(Request $request, ManagerRegistry $managerRegistry)
     {
         /**
          * @var $userPreference Preference
          */
-        $userPreference = $this->getDoctrine()->getRepository(Preference::class)
+        $userPreference = $managerRegistry->getRepository(Preference::class)
             ->findOneBy(['user' => $this->getUser()]);
 
         if ($request->get('method') === 'saveShortcut') {
@@ -41,7 +43,7 @@ class PreferenceController extends AbstractDesktopController
             /**
              * @var $theme Theme
              */
-            $theme = $this->getDoctrine()->getRepository(Theme::class)
+            $theme = $managerRegistry->getRepository(Theme::class)
                 ->find($data['themeId']);
 
             $userPreference->setTaskbarTransparency($data['taskbarTransparency']);
@@ -55,7 +57,7 @@ class PreferenceController extends AbstractDesktopController
             /**
              * @var $wallpaper Wallpaper
              */
-            $wallpaper = $this->getDoctrine()->getRepository(Wallpaper::class)
+            $wallpaper = $managerRegistry->getRepository(Wallpaper::class)
                 ->find($data['wallpaperId']);
 
             $userPreference->setBgColor($data['backgroundColor']);
@@ -64,8 +66,8 @@ class PreferenceController extends AbstractDesktopController
 
         }
 
-        $this->getDoctrine()->getManager()->persist($userPreference);
-        $this->getDoctrine()->getManager()->flush();
+        $managerRegistry->getManager()->persist($userPreference);
+        $managerRegistry->getManager()->flush();
 
         return new JsonResponse(['success' => true]);
     }

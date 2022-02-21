@@ -3,18 +3,23 @@
 namespace CoralMedia\Bundle\WebDesktopBundle\Controller\Desktop;
 
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Wallpaper;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class WallpaperController extends AbstractDesktopController
 {
     /**
      * @Route("/wallpapers", name="desktop_wallpaper_get_all")
+     * @param Request $request
+     * @param ManagerRegistry $managerRegistry
+     * @return JsonResponse
      */
-    public function getAll()
+    public function getAll(Request $request, ManagerRegistry $managerRegistry)
     {
-        $data = $this->getDoctrine()->getRepository(Wallpaper::class)
+        $data = $managerRegistry->getRepository(Wallpaper::class)
             ->findAll();
         $wallpapersPath = '/bundles/coralmediawebdesktop/desktop/resources/wallpapers';
         $responseData = [];

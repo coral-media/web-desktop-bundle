@@ -4,14 +4,13 @@ namespace CoralMedia\Bundle\WebDesktopBundle\Service;
 
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Module;
 use CoralMedia\Bundle\WebDesktopBundle\Entity\Preference;
-use CoralMedia\Bundle\WebDesktopBundle\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
 
 final class DesktopManager
 {
-    protected $em;
-    protected $security;
+    protected EntityManagerInterface $em;
+    protected Security $security;
 
     public function __construct(EntityManagerInterface $em, Security $security)
     {
