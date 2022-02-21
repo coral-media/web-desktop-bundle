@@ -56,7 +56,7 @@
                         Ext.QuickTips.init();
                     },
 
-                    apiToken: '{{ app.request.session.get('Bearer')|raw }}',
+                    apiToken: localStorage.getItem('token'),
 
                     /**
                      * The member's name and group name for this session.

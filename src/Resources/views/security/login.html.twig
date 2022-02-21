@@ -3,9 +3,12 @@
 {% block title %}Log in{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" id="theme" href="{{ asset('build/ext-3.4.1/resources/css/xtheme-blue.css') }}">
-    <link rel="stylesheet" type="text/css" id="x-theme" href="{{ asset('build/desktop/resources/x-blue.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/login.css') }}">
+    <link rel="stylesheet" type="text/css" id="theme"
+          href="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/resources/css/xtheme-blue.css') }}">
+    <link rel="stylesheet" type="text/css" id="x-theme"
+          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/x-blue.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/login.css') }}">
     <style>
 
     </style>
@@ -15,7 +18,7 @@
 
     <script type="text/javascript">
         Ext.onReady(function(){
-            Ext.BLANK_IMAGE_URL = '{{ asset('build/ext-3.4.1/resources/images/default/s.gif') }}';
+            Ext.BLANK_IMAGE_URL = '{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/resources/images/default/s.gif') }}';
             Ext.QuickTips.init();
             new Ext.Viewport({
                 autoShow: true,
@@ -47,8 +50,7 @@
                         },
                         layout: 'form',
                         width: 400,
-                        standardSubmit: true,
-                        url: '/login',
+                        url: '/api/security/token',
                         method: 'POST',
                         buttons: [{
                             text: 'Login',
@@ -57,7 +59,26 @@
                             handler: function(self) {
                                 let form = self.findParentByType('form').getForm();
                                 if (form.isValid()) {
-                                    form.submit();
+                                    form.doAction('jsonSubmit', {
+                                        headers: {
+                                            'Content-Type': 'application/ld+json',
+                                            'Accept': 'application/ld+json, application/json'
+                                        },
+                                        success: function(form, action) {
+                                            let response = Ext.decode(action.response.responseText);
+                                            localStorage.setItem('token', response['token']);
+                                            localStorage.setItem('refreshToken', response['refresh_token']);
+                                        },
+                                        failure: function (form, action) {
+                                            localStorage.removeItem('token');
+                                            localStorage.removeItem('refreshToken');
+                                            console.log(action);
+                                            let response = Ext.decode(action.response.responseText);
+                                            if(action.response.status === 401) {
+                                                Ext.Msg.alert('Error!', response['message']);
+                                            }
+                                        }
+                                    });
                                 } else {
                                     Ext.Msg.alert( "Error!", "Your form is not valid!" );
                                 }
@@ -67,7 +88,7 @@
                             {
                                 id: 'inputEmail',
                                 xtype: 'textfield',
-                                name: 'email',
+                                name: 'user',
                                 value: '{{ last_username }}',
                                 fieldLabel: 'Email',
                                 labelStyle: 'color: #ffffff; font-size: 20px;',
@@ -136,48 +157,15 @@
                         padding: 40,
 
                         html:'<code>&copy; {{ "now"|date('Y') }} ' +
-                            '<a style="color: #fff;" target="_blank" href="https://coralmediasolutions.com/">Coral Media Solutions</a></code>'
+                            '<a style="color: #fff;" target="_blank" href="https://www.coralmediasolutions.dev/">Coral Media Solutions</a></code>'
                     })
                 ]
             });
         });
     </script>
-
-
-{#<form method="post">#}
-{#    {% if error %}#}
-{#        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
-{#    {% endif %}#}
-
-{#    {% if app.user %}#}
-{#        <div class="mb-3">#}
-{#            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>#}
-{#        </div>#}
-{#    {% endif %}#}
-
-{#    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
-{#    <label for="inputEmail">Email</label>#}
-{#    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>#}
-{#    <label for="inputPassword">Password</label>#}
-{#    <input type="password" name="password" id="inputPassword" class="form-control" required>#}
-
-{#    <input type="hidden" name="_csrf_token"#}
-{#           value="{{ csrf_token('authenticate') }}"#}
-{#    >#}
-
-
-{#        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
-{#        See https://symfony.com/doc/current/security/remember_me.html#}
-
-{#        <div class="checkbox mb-3">#}
-{#            <label>#}
-{#                <input type="checkbox" name="_remember_me"> Remember me#}
-{#            </label>#}
-{#        </div>#}
-
-
-{#    <button class="btn btn-lg btn-primary" type="submit">#}
-{#        Sign in#}
-{#    </button>#}
-{#</form>#}
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript"
+            src="{{ asset('bundles/coralmediawebdesktop/desktop/addons/hydra-api/Hydra.form.Action.JsonSubmit.js') }}"
+    ></script>
 {% endblock %}
