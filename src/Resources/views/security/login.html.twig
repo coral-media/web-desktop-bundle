@@ -9,6 +9,8 @@
           href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/x-blue.css') }}">
     <link rel="stylesheet" type="text/css"
           href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/login.css') }}">
+    <link rel="stylesheet" type="text/css" id="x-icons"
+          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/icons.css') }}">
     <style>
 
     </style>
@@ -55,7 +57,7 @@
                         buttons: [{
                             text: 'Login',
                             scale: 'large',
-                            width: 60,
+                            width: 100,
                             handler: function(self) {
                                 let form = self.findParentByType('form').getForm();
                                 if (form.isValid()) {
@@ -68,6 +70,7 @@
                                             let response = Ext.decode(action.response.responseText);
                                             localStorage.setItem('token', response['token']);
                                             localStorage.setItem('refreshToken', response['refresh_token']);
+                                            window.location.href="/desktop";
                                         },
                                         failure: function (form, action) {
                                             localStorage.removeItem('token');

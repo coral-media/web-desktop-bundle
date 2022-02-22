@@ -1,7 +1,7 @@
 fixtures:
     CoralMedia\Bundle\WebDesktopBundle\Entity\Module:
         -   jsid: 'demo-bogus'
-            type: 'demo/bogus'
+            type: 'coralmediawebdesktop/demo/bogus'
             label: 'Bogus Window'
             className: 'QoDesk.BogusWindow'
             iconCls: 'bogus-icon'
@@ -13,7 +13,7 @@ fixtures:
             hasResources: true
 
         -   jsid: 'demo-accordion'
-            type: 'demo/accordion'
+            type: 'coralmediawebdesktop/demo/accordion'
             label: 'Accordion Window'
             className: 'QoDesk.AccordionWindow'
             iconCls: 'acc-icon'
@@ -25,7 +25,7 @@ fixtures:
             hasResources: true
 
         -   jsid: 'demo-grid'
-            type: 'demo/grid'
+            type: 'coralmediawebdesktop/demo/grid'
             label: 'Grid Window'
             className: 'QoDesk.GridWindow'
             iconCls: 'grid-icon'
@@ -37,7 +37,7 @@ fixtures:
             hasResources: true
 
         -   jsid: 'demo-layout'
-            type: 'demo/layout'
+            type: 'coralmediawebdesktop/demo/layout'
             label: 'Layout Window'
             className: 'QoDesk.LayoutWindow'
             iconCls: 'layout-icon'
@@ -49,7 +49,7 @@ fixtures:
             hasResources: false
 
         -   jsid: 'demo-charts'
-            type: 'demo/charts'
+            type: 'coralmediawebdesktop/demo/charts'
             label: 'Charts Window'
             className: 'QoDesk.ChartsWindow'
             iconCls: 'layout-icon'
@@ -61,7 +61,7 @@ fixtures:
             hasResources: false
 
         -   jsid: 'demo-tab'
-            type: 'demo/tab'
+            type: 'coralmediawebdesktop/demo/tab'
             label: 'Tab Window'
             className: 'QoDesk.TabWindow'
             iconCls: 'tab-icon'
@@ -73,7 +73,7 @@ fixtures:
             hasResources: false
 
         -   jsid: 'system-preferences'
-            type: 'system/preferences'
+            type: 'coralmediawebdesktop/system/preferences'
             label: 'Preferences'
             className: 'QoDesk.QoPreferences'
             iconCls: 'qo-pref-icon'
@@ -85,7 +85,7 @@ fixtures:
             hasResources: true
 
         -   jsid: 'system-administration'
-            type: 'system/administration'
+            type: 'coralmediawebdesktop/system/administration'
             label: 'Control Center'
             className: 'CoralMedia.Admin'
             iconCls: 'qo-admin-icon'

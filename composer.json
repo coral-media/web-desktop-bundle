@@ -21,7 +21,6 @@
     },
     "require": {
         "php": "^7.4|^8.0",
-        "symfony/webpack-encore-bundle": "^1.8",
         "twig/twig": "^3.3"
     },
     "require-dev": {

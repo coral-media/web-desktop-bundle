@@ -2,19 +2,19 @@
 
 {% block stylesheets %}
     <!-- DESKTOP CSS -->
-{#    <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/css/xtheme-blue.css') }}" />#}
+    {# <link rel="stylesheet" type="text/css" href="{{ asset('build/desktop/resources/css/xtheme-blue.css') }}" /> #}
     <link rel="stylesheet" type="text/css"
-          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/desktop.css') }}" />
+          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/desktop.css') }}"/>
     <link rel="stylesheet" type="text/css"
-          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/icons.css') }}" />
+          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/icons.css') }}"/>
     <link rel="stylesheet" type="text/css"
-          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/oxygen-icons.css') }}" />
+          href="{{ asset('bundles/coralmediawebdesktop/desktop/resources/oxygen-icons.css') }}"/>
 
     <script type="text/javascript"
             src="{{ asset('bundles/coralmediawebdesktop/requirejs/require.js') }}"></script>
 {% endblock %}
 
-{% block title %}Hello DesktopController!{% endblock %}
+{% block title %}Coral Media Desktop!{% endblock %}
 
 {% block body %}
 {% endblock %}
@@ -25,7 +25,7 @@
             baseUrl: '/bundles/coralmediawebdesktop/requirejs',
             paths: {
                 desktop: '../desktop',
-                app: '../desktop/modules',
+                app: '../../../bundles',
                 sencha: '../ext-3.4.1',
                 addons: '../desktop/addons'
             }
@@ -41,11 +41,11 @@
             'desktop/StartMenu',
             'desktop/TaskBar',
             'desktop/QuickStartPanel',
-            'desktop/TaskButton',
-            'desktop/TaskButtonsPanel',
             'desktop/Utils',
             'desktop/chart.js/chart',
-        ], function(){
+            'desktop/TaskButton',
+            'desktop/TaskButtonsPanel',
+        ], function () {
             require(['domReady!'], function (doc) {
                 Ext.namespace('Ext.ux', 'App.Desktop', 'QoDesk', 'CoralMedia');
 

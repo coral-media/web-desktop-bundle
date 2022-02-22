@@ -37,4 +37,13 @@ class DesktopController extends AbstractDesktopController
             ['last_username' => $lastUsername, 'error' => $error]
         );
     }
+
+    /**
+     * @Route("/logout", name="desktop_logout")
+     * @return Response
+     */
+    public function logout()
+    {
+        return $this->redirectToRoute('desktop_login');
+    }
 }

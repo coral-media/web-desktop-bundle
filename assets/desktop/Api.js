@@ -1,4 +1,4 @@
-Ext.Ajax.on('beforerequest', function(conn, options){
+Ext.Ajax.on('beforerequest', function (conn, options) {
     conn.defaultHeaders = {
         'Authorization': 'Bearer ' + App.Desktop.apiToken
     };
@@ -7,7 +7,7 @@ Ext.Ajax.on('beforerequest', function(conn, options){
 Ext.Ajax.on('requestexception', function (conn, response, options) {
     let responseText = response.responseText;
     let responseXML = response.responseXML;
-
+    console.log(response);
 
     if (responseText && !responseXML) {
         let o = Ext.decode(responseText);
@@ -16,14 +16,16 @@ Ext.Ajax.on('requestexception', function (conn, response, options) {
                 if (o.message === 'Expired JWT Token') {
                     Ext.Ajax.request({
                         url: '/security/api/token',
-                        success: function(response, opts) {
+                        success: function (response, opts) {
                             let obj = Ext.decode(response.responseText);
                             App.Desktop.apiToken = obj.token;
                         },
-                        failure: function(response, opts) {
+                        failure: function (response, opts) {
                             console.log('server-side failure with status code ' + response.status);
                         }
                     });
+                } else {
+                    window.location.href = '/desktop/login'
                 }
                 break;
         }

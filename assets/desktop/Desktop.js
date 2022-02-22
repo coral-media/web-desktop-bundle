@@ -43,7 +43,7 @@ Ext.Desktop = Ext.extend(Ext.util.Observable, {
      */
     logoutConfig: {
         handler: function () {
-            window.location = "/security/logout";
+            window.location = "/desktop/logout";
         },
         iconCls: 'icon-logout',
         text: 'Logout'

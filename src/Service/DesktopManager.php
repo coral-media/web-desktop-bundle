@@ -47,7 +47,7 @@ final class DesktopManager
         return $hydratedModuleData;
     }
 
-    public function hydrateDesktopConfig()
+    public function hydrateDesktopConfig(): object
     {
         /**
          * @var Preference $rawData

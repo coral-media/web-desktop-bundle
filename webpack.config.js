@@ -16,8 +16,6 @@ Encore
         config.useBuiltIns = 'usage';
         config.corejs = 3;
     })
-
-    .addEntry('app', './assets/app.js')
     .copyFiles({
         from: './node_modules/chart.js/dist',
         to: 'desktop/chart.js/[path][name].[ext]'
@@ -33,18 +31,8 @@ Encore
         to: 'font-awesome/css/[name].[ext]'
     })
     .copyFiles({
-        from: './assets/desktop',
+        from: './assets',
             // to: 'desktop/[path][name].[hash:8].[ext]'
-        to: 'desktop/[path][name].[ext]'
-    })
-    .copyFiles({
-        from: './assets/ext-3.4.1',
-            // to: 'ext-3.4.1/[path][name].[hash:8].[ext]'
-        to: 'ext-3.4.1/[path][name].[ext]'
-    })
-    .copyFiles({
-        from: './assets/requirejs',
-            // to: 'ext-3.4.1/[path][name].[hash:8].[ext]'
-        to: 'requirejs/[path][name].[ext]'
+        to: '[path][name].[ext]'
     })
 module.exports = Encore.getWebpackConfig();
