@@ -6,8 +6,24 @@
         <link rel="stylesheet" type="text/css"
               href="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/resources/css/ext-all-notheme.css') }}" />
         {% block stylesheets %}{% endblock %}
-        <script type="text/javascript" src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/adapter/ext/ext-base.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/ext-all.js') }}"></script>
+        {% if app.request.server.get('APP_ENV') is same as 'prod' %}
+            <script type="text/javascript"
+                    src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/adapter/ext/ext-base.js') }}">
+            </script>
+        {% else %}
+            <script type="text/javascript"
+                    src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/adapter/ext/ext-base-debug.js') }}">
+            </script>
+        {% endif %}
+        {% if app.request.server.get('APP_ENV') is same as 'prod' %}
+            <script type="text/javascript"
+                    src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/ext-all.js') }}">
+            </script>
+        {% else %}
+            <script type="text/javascript"
+                    src="{{ asset('bundles/coralmediawebdesktop/ext-3.4.1/ext-all-debug.js') }}">
+            </script>
+        {% endif %}
     </head>
     <body>
         {% block body %}{% endblock %}

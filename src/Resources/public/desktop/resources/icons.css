@@ -1,0 +1,34 @@
+.bogus-icon { background-image: url(images/icons/bogus16x16.gif) !important; }
+.x-btn-medium .bogus-icon { background-image: url(images/icons/bogus24x24.gif) !important; }
+.x-btn-large .bogus-icon { background-image: url(images/icons/bogus32x32.gif) !important; }
+.demo-bogus-shortcut { background-image: url(images/icons/bogus48x48.png) !important; }
+
+.qo-pref-icon { background-image: url(images/icons/qo-pref-icon16x16.gif) !important; }
+.x-btn-medium .qo-pref-icon { background-image: url(images/icons/qo-pref-icon24x24.gif) !important; }
+.x-btn-large .qo-pref-icon { background-image: url(images/icons/qo-pref-icon32x32.gif) !important; }
+.qo-pref-shortcut-icon { background-image: url(images/icons/qo-pref-icon48x48.png) !important; }
+
+.qo-admin-icon { background-image: url(images/icons/qo-admin-icon16x16.gif) !important; }
+.x-btn-medium .qo-admin-icon { background-image: url(images/icons/qo-admin-icon24x24.gif) !important; }
+.x-btn-large .qo-admin-icon { background-image: url(images/icons/qo-admin-icon32x32.gif) !important; }
+.qo-admin-shortcut-icon { background-image: url(images/icons/qo-admin-icon48x48.png) !important; }
+
+.acc-icon { background-image: url(images/icons/accordion16x16.gif) !important; }
+.x-btn-medium .acc-icon { background-image: url(images/icons/accordion24x24.gif) !important; }
+.x-btn-large .acc-icon { background-image: url(images/icons/accordion32x32.gif) !important; }
+.demo-acc-shortcut { background-image: url(images/icons/accordion48x48.png) !important; }
+
+.grid-icon { background-image:url(images/icons/grid16x16.gif) !important; }
+.x-btn-medium .grid-icon { background-image: url(images/icons/grid24x24.gif) !important; }
+.x-btn-large .grid-icon { background-image: url(images/icons/grid32x32.gif) !important; }
+.demo-grid-shortcut { background-image: url(images/icons/grid48x48.png) !important; }
+
+.layout-icon { background-image: url(images/icons/layout16x16.gif) !important; }
+.x-btn-medium .layout-icon { background-image: url(images/icons/layout24x24.gif) !important; }
+.x-btn-large .layout-icon { background-image: url(images/icons/layout32x32.gif) !important; }
+.demo-layout-shortcut { background-image: url(images/icons/layout48x48.png) !important; }
+
+.tab-icon { background-image: url(images/icons/tab16x16.gif) !important; }
+.x-btn-medium .tab-icon { background-image: url(images/icons/tab24x24.gif) !important; }
+.x-btn-large .tab-icon { background-image: url(images/icons/tab32x32.gif) !important; }
+.demo-tab-shortcut { background-image: url(images/icons/tab48x48.png) !important; }

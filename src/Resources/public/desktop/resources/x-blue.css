@@ -1,0 +1,108 @@
+/* qWikiOffice */
+.ux-startmenu {
+    background: transparent none;
+    border-color: transparent;
+    border-width: 0;
+}
+
+.ux-startmenu-tl .ux-startmenu-header {
+    color: #fff;
+}
+
+.ux-startmenu-mc {
+    border-color: #99bbe8;
+}
+
+.ux-startmenu-tc {
+    background-image: url(images/default/window/glass-top-bottom.png);
+}
+
+.ux-startmenu-tl {
+    background-image: url(images/default/window/glass-left-corners.png);
+}
+
+.ux-startmenu-tr {
+    background-image: url(images/default/window/glass-right-corners.png);
+}
+
+.ux-startmenu-bc {
+    background-image: url(images/default/window/glass-top-bottom.png);
+}
+
+.ux-startmenu-bl {
+    background-image: url(images/default/window/glass-left-corners.png);
+}
+
+.ux-startmenu-br {
+    background-image: url(images/default/window/glass-right-corners.png);
+}
+
+.ux-startmenu-ml {
+    background-image: url(images/default/window/glass-left-side.png);
+}
+
+.ux-startmenu-mr {
+    background-image: url(images/default/window/glass-right-side.png);
+}
+
+.x-window-tl {
+    background-image: url(images/default/window/glass-left-corners.png);
+}
+
+.x-window-tr {
+    background-image: url(images/default/window/glass-right-corners.png);
+}
+
+.x-window-tc {
+    background-image: url(images/default/window/glass-top-bottom.png);
+}
+
+.x-window-ml {
+    background-image: url(images/default/window/glass-left-side.png);
+}
+
+.x-window-mr {
+    background-image: url(images/default/window/glass-right-side.png);
+}
+
+.x-window-bl {
+    background-image: url(images/default/window/glass-left-corners.png);
+}
+
+.x-window-br {
+    background-image: url(images/default/window/glass-right-corners.png);
+}
+
+.x-window-bc {
+    background-image: url(images/default/window/glass-top-bottom.png);
+}
+
+.x-window-tl .x-window-header {
+    color: #fff;
+    padding: 11px 4px 3px 4px !important;
+}
+
+.x-window-tl .x-panel-icon {
+    background-position: 4px 10px;
+    padding-left: 24px !important;
+}
+
+.x-window-maximized .x-window-tl {
+    background-image: none;
+}
+
+.x-window-maximized .x-window-tr {
+    background-image: none;
+}
+
+.x-window-maximized .x-window-tc {
+    background-color: transparent;
+}
+
+.x-window-maximized .x-window-bl {
+    background-image: none;
+}
+
+.x-window-maximized .x-window-br {
+    background-image: none;
+}
